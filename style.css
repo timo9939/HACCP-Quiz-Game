@@ -4,8 +4,16 @@ main{
    padding: 8vw;
 }
 
-h3{
+.btn-style{
     background-color: rgba(250, 255, 251, 0.822);
     padding: 2vh;
     border-radius: 10px;
+    border: none;
+    
+}
+
+.choice-style{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
