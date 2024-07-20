@@ -52,7 +52,9 @@ questionSource.choices.forEach(element => {
 }
 
 function checkAnswer(selectedAns,selectedBtn){
-    
+   
+next_btn.classList.remove('nextBtn-style-off')
+next_btn.classList.add('nextBtn-style-on')
     if(selectedAns){
         console.log("answer button clicked",selectedAns)
         selectedBtn.classList.add("correct")
