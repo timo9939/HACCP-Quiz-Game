@@ -21,20 +21,27 @@ const questions=[
     }
 ]
 
-let currentQuestionIndex=0;
+let currentQuestionIndex=1;
 let score=0;
 
 const questionDisplay=document.getElementById('question')
 const answerChoices=document.getElementById("choices")
+let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberDisplay")
+currentQuestionNumberDisplay.innerText=currentQuestionIndex
 
 // Showing the question and answer choices
-questionDisplay.innerHTML=questions[0].question
+function showQuestion(questionSource){
 
-questions[0].choices.forEach(element => {
+questionDisplay.innerHTML=questionSource.question
+
+questionSource.choices.forEach(element => {
     const answerButton=document.createElement('button')
    answerButton.textContent=element.text
+   answerButton.classList.add("btn-style")
    answerChoices.appendChild(answerButton)
    
-});
+})
+}
 
 
+showQuestion(questions[currentQuestionIndex])
