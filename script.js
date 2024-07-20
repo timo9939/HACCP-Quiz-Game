@@ -21,19 +21,23 @@ const questions=[
     }
 ]
 
-let currentQuestionIndex=1;
+let currentQuestionIndex=0;
 let score=0;
 
 const questionDisplay=document.getElementById('question')
 const answerChoices=document.getElementById("choices")
 let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberDisplay")
-currentQuestionNumberDisplay.innerText=currentQuestionIndex
+
 const correctIncorrect=document.getElementById("correctIncorrect")
+const next_btn= document.getElementById('next-btn')
+
 
 // Showing the question and answer choices
 function showQuestion(questionSource){
-
+currentQuestionNumberDisplay.innerText=currentQuestionIndex+1
 questionDisplay.innerHTML=questionSource.question
+
+answerChoices.innerText=""
 
 questionSource.choices.forEach(element => {
     const answerButton=document.createElement('button')
@@ -47,7 +51,6 @@ questionSource.choices.forEach(element => {
    
 }
 
-
 function checkAnswer(selectedAns,selectedBtn){
     
     if(selectedAns){
@@ -60,6 +63,12 @@ function checkAnswer(selectedAns,selectedBtn){
         correctIncorrect.innerText="Incorrect Answer"
     }
 Array.from(answerChoices.children).forEach(btn=>btn.disabled=true)
+next_btn.addEventListener("click",nextBtnClick)
 }
-
+function nextBtnClick(){
+    console.log("Next Button Clikced")
+    currentQuestionIndex++
+    console.log(`currentQuestionIndex is ${currentQuestionIndex}`)
+    showQuestion(questions[currentQuestionIndex])
+}
 showQuestion(questions[currentQuestionIndex])
