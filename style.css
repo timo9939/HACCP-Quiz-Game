@@ -22,6 +22,12 @@ background-color:  rgba(250, 255, 251, 0.998);
     gap: 3vh;
 }
 
+#choices{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
 /* To check whether the answer is correct */
 .btn-style.correct{
     background-color: rgb(0, 255, 0);
@@ -31,18 +37,4 @@ background-color:  rgba(250, 255, 251, 0.998);
     background-color: rgba(235, 19, 19, 0.877);
 }
 
-/* Disable the hover effect after clicking the choice */
-/* .no-hover-correct:hover {
-    background-color:  rgb(51, 247, 84);
-   
-} */
-
-button:disabled {
-    background-color: initial;
-    color: black;
-}
-
-.no-hover{
-    background-color: initial;
-}
 
