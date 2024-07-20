@@ -28,6 +28,7 @@ const questionDisplay=document.getElementById('question')
 const answerChoices=document.getElementById("choices")
 let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberDisplay")
 currentQuestionNumberDisplay.innerText=currentQuestionIndex
+const correctIncorrect=document.getElementById("correctIncorrect")
 
 // Showing the question and answer choices
 function showQuestion(questionSource){
@@ -39,9 +40,26 @@ questionSource.choices.forEach(element => {
    answerButton.textContent=element.text
    answerButton.classList.add("btn-style")
    answerChoices.appendChild(answerButton)
+   answerButton.setAttribute("data-correct",element.correct)
+   answerButton.addEventListener("click",()=>checkAnswer(element.correct,answerButton))
+    
+   })
    
-})
 }
 
+
+function checkAnswer(selectedAns,selectedBtn){
+    
+    if(selectedAns){
+        console.log("answer button clicked",selectedAns)
+        selectedBtn.classList.add("correct")
+        correctIncorrect.innerText="Correct"
+    }
+    else{
+        selectedBtn.classList.add('wrong')
+        correctIncorrect.innerText="Incorrect Answer"
+    }
+Array.from(answerChoices.children).forEach(btn=>btn.disabled=true)
+}
 
 showQuestion(questions[currentQuestionIndex])
