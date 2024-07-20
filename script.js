@@ -60,7 +60,7 @@ let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberD
 
 const correctIncorrect=document.getElementById("correctIncorrect")
 const next_btn= document.getElementById('next-btn')
-
+const scoreDisplay=document.getElementById("score")
 
 // Showing the question and answer choices
 function showQuestion(questionSource){
@@ -94,6 +94,7 @@ next_btn.classList.add('nextBtn-style-on')
         console.log("answer button clicked",selectedAns)
         selectedBtn.classList.add("correct")
         correctIncorrect.innerText="Correct"
+        score++
     }
     else{
         selectedBtn.classList.add('wrong')
@@ -103,9 +104,28 @@ Array.from(answerChoices.children).forEach(btn=>btn.disabled=true)
 next_btn.addEventListener("click",nextBtnClick)
 }
 function nextBtnClick(){
+    if(currentQuestionIndex<4){
     console.log("Next Button Clikced")
     currentQuestionIndex++
     console.log(`currentQuestionIndex is ${currentQuestionIndex}`)
     showQuestion(questions[currentQuestionIndex])
 }
+
+else{
+    showScore()
+}
+
+}
 showQuestion(questions[currentQuestionIndex])
+
+function showScore(){
+    correctIncorrect.innerHTML=""
+questionDisplay.innerHTML=""
+answerChoices.innerText=""
+currentQuestionNumberDisplay=""
+scoreDisplay.innerText=score
+next_btn.classList.remove('nextBtn-style-on')
+next_btn.classList.add('nextBtn-style-off')
+scoreDisplay.classList.remove('score-display-off')
+scoreDisplay.classList.add('score-display-on')
+}

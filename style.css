@@ -55,4 +55,11 @@ background-color:  rgba(250, 255, 251, 0.998);
     background-color: rgba(235, 19, 19, 0.877);
 }
 
+/* Score Page */
+.score-display-off{
+display: none;
+}
 
+.score-display-on{
+    display: block;
+}
