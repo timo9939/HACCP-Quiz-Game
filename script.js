@@ -1,5 +1,6 @@
 
 
+
 const questions=[
     {
         question:"Which one is not the HACCP 7 principles?",
@@ -18,7 +19,36 @@ const questions=[
             {text:"Checking the cost of the thermal processing",correct:false},
             {text:"Making the package looks prettier",correct:false}
         ]
+    },
+    {
+        question:"Which one belongs to establish critical limits?",
+        choices:[
+            {text:"Storing the oyster below 8°C",correct:true},
+            {text:"Establish corrective actions",correct:false},
+            {text:"Establish monitoring procedures",correct:false},
+            {text:"Carry internal audit",correct:false}
+        ]
+    },
+    {
+        question:"Humidity Check of the cheese is an exemple of?",
+        choices:[
+            {text:"Corrective action",correct:false},
+            {text:"Establish control limits",correct:false},
+            {text:"Monitoring Procedures",correct:true},
+            {text:"Conduct a hazard analysis",correct:false}
+        ]
+    },
+    {
+        question:"Which one is an example of prereqisite programme?",
+        choices:[
+            {text:"Making decision tree diagram",correct:false},
+            {text:"Establish control limits",correct:false},
+            {text:"Employee food safety training",correct:true},
+            {text:"Keeping record of audit details",correct:false}
+        ]
+
     }
+
 ]
 
 let currentQuestionIndex=0;
@@ -35,9 +65,13 @@ const next_btn= document.getElementById('next-btn')
 // Showing the question and answer choices
 function showQuestion(questionSource){
 currentQuestionNumberDisplay.innerText=currentQuestionIndex+1
-questionDisplay.innerHTML=questionSource.question
 
+correctIncorrect.innerHTML=""
+questionDisplay.innerHTML=questionSource.question
 answerChoices.innerText=""
+
+next_btn.classList.remove('nextBtn-style-on')
+next_btn.classList.add('nextBtn-style-off')
 
 questionSource.choices.forEach(element => {
     const answerButton=document.createElement('button')
@@ -51,6 +85,7 @@ questionSource.choices.forEach(element => {
    
 }
 
+// Check whether answer is correct or not and display correct or incorrect
 function checkAnswer(selectedAns,selectedBtn){
    
 next_btn.classList.remove('nextBtn-style-off')
