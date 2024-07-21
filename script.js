@@ -56,7 +56,7 @@ let score=0;
 
 const questionDisplay=document.getElementById('question')
 const answerChoices=document.getElementById("choices")
-let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberDisplay")
+let currentQuestionNumber_Display=document.getElementById("currentQuestionNumberDisplay")
 const question_No_Header=document.getElementById("question_No_Header")
 
 const correctIncorrect=document.getElementById("correctIncorrect")
@@ -64,9 +64,11 @@ const next_btn= document.getElementById('next-btn')
 const scoreDisplay=document.getElementById("score-display")
 const scoreDisplayScore=document.getElementById("score")
 
+const restart_btn=document.getElementById("restart-btn")
+
 // Showing the question and answer choices
 function showQuestion(questionSource){
-currentQuestionNumberDisplay.innerText=currentQuestionIndex+1
+currentQuestionNumber_Display.innerText=currentQuestionIndex+1
 
 correctIncorrect.innerHTML=""
 questionDisplay.innerHTML=questionSource.question
@@ -115,17 +117,19 @@ function nextBtnClick(){
 
 else{
     showScore()
+    currentQuestionIndex=0
 }
 
 }
 showQuestion(questions[currentQuestionIndex])
 
+// Showing the total score
 function showScore(){
     correctIncorrect.innerHTML=""
 questionDisplay.innerHTML=""
 answerChoices.innerText=""
-currentQuestionNumberDisplay=""
-question_No_Header.innerText=""
+// currentQuestionNumber_Display=""
+// question_No_Header.innerText=""
 console.log(`Score is ${score}`)
 
 next_btn.classList.remove('nextBtn-style-on')
@@ -133,5 +137,21 @@ next_btn.classList.add('nextBtn-style-off')
 scoreDisplay.classList.remove('score-display-off')
 scoreDisplay.classList.add('score-display-on')
 scoreDisplayScore.innerText=score
+    // console.log("Before restart, currentQuestionNumber_Display is",currentQuestionNumber_Display)
+restart_btn.addEventListener("click",restart)
+}
 
+function restart(){
+    currentQuestionIndex=0
+    score=0
+
+    // currentQuestionNumber_Display.innerText=currentQuestionIndex+1    
+
+
+    scoreDisplay.classList.remove('score-display-on')
+    scoreDisplay.classList.add('score-display-off')
+
+
+    showQuestion(questions[currentQuestionIndex])
+    // console.log("After restart, currentQuestionNumber_Display is",currentQuestionNumber_Display)
 }

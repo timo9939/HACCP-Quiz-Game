@@ -3,6 +3,11 @@ main{
    border-radius: 10px;
    padding: 8vw;
 }
+
+#question_No_Header{
+    height: 5vh;
+}
+
 /* Answer button design */
 .btn-style{
     background-color: rgba(250, 255, 251, 0.749);
