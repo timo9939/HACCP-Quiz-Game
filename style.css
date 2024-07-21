@@ -102,7 +102,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 
-transition: opacity 4s, visibility 4s;
+transition: opacity 1s , visibility 1s;
 
 }
 
@@ -111,15 +111,15 @@ transition: opacity 4s, visibility 4s;
     width: 100px;
     height: 100px;
     border: 15px solid white;
-    border-top-color: rgb(246, 249, 57);
+    border-top-color: rgb(27, 245, 122);
 
     border-radius: 50vw;
-    animation: loading 8s  infinite;
+    animation: loading 2s ease-out infinite;
 }
 
 @keyframes loading{
-    from {transition:rotate(0deg);}
-    to{transform:rotate(360deg);}
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .loader-hidden{

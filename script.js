@@ -140,6 +140,7 @@ scoreDisplay.classList.add('score-display-on')
 scoreDisplayScore.innerText=score
     // console.log("Before restart, currentQuestionNumber_Display is",currentQuestionNumber_Display)
 restart_btn.addEventListener("click",restart)
+loaderPage.parentNode.appendChild(loaderPage)
 }
 
 
@@ -152,17 +153,20 @@ function restart(){
 
     question_No_Header.classList.remove('hidden')
 
-
-    showQuestion(questions[currentQuestionIndex])
-
     function loadingCircle(){
         loaderPage.classList.remove("loader-hidden")
-        loaderPage.addEventListener("transitionend",()=>{
+        // loaderPage.addEventListener("transitionend",()=>{
+        //     loaderPage.parentNode.removeChild(loaderPage)
+        // })
+        setTimeout(() => {
+            loader.classList.add("hidden");
             loaderPage.parentNode.removeChild(loaderPage)
-        })
+          }, 3000);
     }
+     loadingCircle();
+     showQuestion(questions[currentQuestionIndex])
 
-    loadingCircle()
+   
     // console.log("After restart, currentQuestionNumber_Display is",currentQuestionNumber_Display)
 }
 
