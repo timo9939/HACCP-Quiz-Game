@@ -128,8 +128,8 @@ function showScore(){
     correctIncorrect.innerHTML=""
 questionDisplay.innerHTML=""
 answerChoices.innerText=""
-// currentQuestionNumber_Display=""
-// question_No_Header.innerText=""
+question_No_Header.classList.add('hidden')
+
 console.log(`Score is ${score}`)
 
 next_btn.classList.remove('nextBtn-style-on')
@@ -145,11 +145,10 @@ function restart(){
     currentQuestionIndex=0
     score=0
 
-    // currentQuestionNumber_Display.innerText=currentQuestionIndex+1    
-
-
     scoreDisplay.classList.remove('score-display-on')
     scoreDisplay.classList.add('score-display-off')
+
+    question_No_Header.classList.remove('hidden')
 
 
     showQuestion(questions[currentQuestionIndex])
