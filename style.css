@@ -1,7 +1,8 @@
-main{
+body{
     background-color: #6cef79c4;
    border-radius: 10px;
    padding: 8vw;
+  background-size: cover;
 }
 
 #question_No_Header{
@@ -36,7 +37,10 @@ background-color:  rgba(250, 255, 251, 0.998);
 .nextBtn-Contaniner{
     display: flex;
     justify-content: end;
-    gap:25vw
+    gap:25vw;
+
+    margin: 10vh;
+    text-align: center;
 }
 
 .nextBtn-style-on{
@@ -70,6 +74,15 @@ display: none;
    text-align: center;
 }
 
+#restart-btn{
+display: block;
+margin-left:50%;
+margin-top: 8vh;
+
+padding: 1vw;
+border: none;
+border-radius:5px ;
+}
 /* hidden class */
 .hidden{
     display: none;
