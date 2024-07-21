@@ -62,4 +62,5 @@ display: none;
 
 .score-display-on{
     display: block;
+   text-align: center;
 }

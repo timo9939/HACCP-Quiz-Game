@@ -57,10 +57,12 @@ let score=0;
 const questionDisplay=document.getElementById('question')
 const answerChoices=document.getElementById("choices")
 let currentQuestionNumberDisplay=document.getElementById("currentQuestionNumberDisplay")
+const question_No_Header=document.getElementById("question_No_Header")
 
 const correctIncorrect=document.getElementById("correctIncorrect")
 const next_btn= document.getElementById('next-btn')
-const scoreDisplay=document.getElementById("score")
+const scoreDisplay=document.getElementById("score-display")
+const scoreDisplayScore=document.getElementById("score")
 
 // Showing the question and answer choices
 function showQuestion(questionSource){
@@ -123,9 +125,13 @@ function showScore(){
 questionDisplay.innerHTML=""
 answerChoices.innerText=""
 currentQuestionNumberDisplay=""
-scoreDisplay.innerText=score
+question_No_Header.innerText=""
+console.log(`Score is ${score}`)
+
 next_btn.classList.remove('nextBtn-style-on')
 next_btn.classList.add('nextBtn-style-off')
 scoreDisplay.classList.remove('score-display-off')
 scoreDisplay.classList.add('score-display-on')
+scoreDisplayScore.innerText=score
+
 }
