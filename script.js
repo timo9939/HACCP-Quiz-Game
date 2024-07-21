@@ -65,6 +65,7 @@ const scoreDisplay=document.getElementById("score-display")
 const scoreDisplayScore=document.getElementById("score")
 
 const restart_btn=document.getElementById("restart-btn")
+const loaderPage=document.getElementById("loader")
 
 // Showing the question and answer choices
 function showQuestion(questionSource){
@@ -141,6 +142,7 @@ scoreDisplayScore.innerText=score
 restart_btn.addEventListener("click",restart)
 }
 
+
 function restart(){
     currentQuestionIndex=0
     score=0
@@ -152,5 +154,15 @@ function restart(){
 
 
     showQuestion(questions[currentQuestionIndex])
+
+    function loadingCircle(){
+        loaderPage.classList.remove("loader-hidden")
+        loaderPage.addEventListener("transitionend",()=>{
+            loaderPage.parentNode.removeChild(loaderPage)
+        })
+    }
+
+    loadingCircle()
     // console.log("After restart, currentQuestionNumber_Display is",currentQuestionNumber_Display)
 }
+

@@ -87,3 +87,48 @@ border-radius:5px ;
 .hidden{
     display: none;
 }
+
+/* loader */
+.loader{
+position: fixed;
+left:0;
+top:0;
+width: 100vw;
+height: 100vh;
+
+background: gray;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+transition: opacity 4s, visibility 4s;
+
+}
+
+.loader::after{
+    content: "";
+    width: 100px;
+    height: 100px;
+    border: 15px solid white;
+    border-top-color: rgb(246, 249, 57);
+
+    border-radius: 50vw;
+    animation: loading 8s  infinite;
+}
+
+@keyframes loading{
+    from {transition:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading_title{
+    color: rgba(255, 255, 255, 0.954);
+order: 2;
+font-size: 3vw;
+}
